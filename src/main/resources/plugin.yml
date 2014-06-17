@@ -1,5 +1,5 @@
 name: UnmoveableInventory
-main: com.elllzman.java.UnmoveableInventory
+main: com.elllzman.java.UnmoveableInventory.UnmoveableInventory
 version: 1.0
 commands:
   UMI:
