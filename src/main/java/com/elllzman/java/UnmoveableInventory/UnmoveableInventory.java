@@ -5,7 +5,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -31,13 +33,23 @@ public class UnmoveableInventory extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void moveEvent(InventoryMoveItemEvent event)
+    public void clickEvent(InventoryClickEvent event)
     {
         if(isEnabled==true)
         {
             event.setCancelled(true);
         }
     }
+
+    @EventHandler
+    public void onOpen(InventoryOpenEvent event)
+    {
+        if(isEnabled==true)
+        {
+            event.setCancelled(true);
+        }
+    }
+
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
