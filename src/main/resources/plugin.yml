@@ -1,0 +1,7 @@
+name: UnmoveableInventory
+main: com.elllzman.java.UnmoveableInventory
+version: 1.0
+commands:
+  UMI:
+    permission: UMI.Basic
+    usage: /UMI - Toggles.
