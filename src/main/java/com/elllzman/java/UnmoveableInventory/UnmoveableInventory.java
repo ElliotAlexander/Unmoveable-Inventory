@@ -42,7 +42,7 @@ public class UnmoveableInventory extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void onOpen(InventoryOpenEvent event)
+    public void onInventoryOpen(InventoryOpenEvent event)
     {
         if(isEnabled==true)
         {
