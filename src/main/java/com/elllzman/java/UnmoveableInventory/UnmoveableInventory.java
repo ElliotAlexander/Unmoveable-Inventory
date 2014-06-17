@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class UnmoveableInventory extends JavaPlugin implements Listener {
 
-    public static boolean isEnabled = false;
+    boolean isEnabled = false;
 
 
     public void onEnable()
@@ -23,10 +23,6 @@ public class UnmoveableInventory extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
     }
 
-    public boolean getState()
-    {
-        return isEnabled();
-    }
 
     public void logger(String s)
     {
@@ -37,7 +33,7 @@ public class UnmoveableInventory extends JavaPlugin implements Listener {
     @EventHandler
     public void moveEvent(InventoryMoveItemEvent event)
     {
-        if(getState())
+        if(isEnabled==true)
         {
             event.setCancelled(true);
         }
@@ -47,13 +43,13 @@ public class UnmoveableInventory extends JavaPlugin implements Listener {
     {
         if(cmd.getName().equalsIgnoreCase("UMI"))
         {
-            if(getState()==false)
+            if(isEnabled==false)
             {
                 getServer().broadcastMessage(ChatColor.GOLD + "Unmoveable inventory has been enabled!");
                 isEnabled = true;
                 return true;
             }
-            if(getState()==true) {
+            if(isEnabled==true) {
                 getServer().broadcastMessage(ChatColor.GOLD + "Unmoveable inventory has been disabled");
                 isEnabled = false;
                 return true;
