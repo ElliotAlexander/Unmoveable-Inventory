@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -30,6 +31,15 @@ public class UnmoveableInventory extends JavaPlugin implements Listener {
     {
         getLogger().info(s);
         return;
+    }
+
+    @EventHandler
+    public void onDrop(PlayerDropItemEvent event)
+    {
+        if(isEnabled==true)
+        {
+            event.setCancelled(true);
+        }
     }
 
     @EventHandler
